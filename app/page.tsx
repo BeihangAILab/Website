@@ -99,34 +99,42 @@ export default function Home() {
             <p>Small, collaborative, and focused on turning ambitious ideas into rigorous research.</p>
           </div>
 
-          <div className="lead-layout">
+          <div className="member-group lead-group">
+            <div className="member-group-heading">
+              <span>01</span>
+              <h3>Lead</h3>
+            </div>
             <article className="member-card lead-card">
               <div className="member-photo lead-photo">
-                <Image src={memberImages[coreMembers.lead.name]} alt={coreMembers.lead.name} sizes="(max-width: 760px) 70vw, 32vw" />
+                <Image src={memberImages[coreMembers.lead.name]} alt={coreMembers.lead.name} sizes="(max-width: 760px) 54vw, 250px" />
               </div>
-              <p className="member-role">{coreMembers.lead.role}</p>
-              <h3>{coreMembers.lead.name}</h3>
+              <h4>{coreMembers.lead.name}</h4>
             </article>
+          </div>
 
-            <div className="coauthors">
-              <p className="group-label">Co-authors</p>
-              <div className="coauthor-grid">
-                {coreMembers.coauthors.map((member) => (
-                  <article className="member-card" key={member.name}>
-                    <div className="member-photo">
-                      <Image src={memberImages[member.name]} alt={member.name} sizes="(max-width: 760px) 42vw, 17vw" />
-                    </div>
-                    <p className="member-role">{member.role}</p>
-                    <h3>{member.name}</h3>
-                  </article>
-                ))}
-              </div>
+          <div className="member-group coauthors">
+            <div className="member-group-heading">
+              <span>02</span>
+              <h3>Co-authors</h3>
+            </div>
+            <div className="coauthor-grid">
+              {coreMembers.coauthors.map((member) => (
+                <article className="member-card" key={member.name}>
+                  <div className="member-photo">
+                    <Image src={memberImages[member.name]} alt={member.name} sizes="(max-width: 760px) 40vw, 220px" />
+                  </div>
+                  <h4>{member.name}</h4>
+                </article>
+              ))}
             </div>
           </div>
 
-          <div className="participants">
+          <div className="member-group participants">
             <div className="participants-heading">
-              <p className="group-label">Participants</p>
+              <div className="member-group-heading">
+                <span>03</span>
+                <h3>Participants</h3>
+              </div>
               <span>{String(participants.length).padStart(2, "0")} people</span>
             </div>
             <div className="participant-list">
