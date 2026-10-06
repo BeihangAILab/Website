@@ -48,10 +48,15 @@ export default function Home() {
             <p className="micro-copy">Learning · Search · Optimization</p>
           </div>
           <div>
-            <h2>Structure first.<br /><em>Scale</em> follows.</h2>
+            <h2>An AI research group<br />at <em>Beihang.</em></h2>
             <p className="about-copy">
-              We study how intelligent systems can discover, compose, and refine algorithms. Our current work spans LLM-guided algorithm design and fast, training-free methods for routing problems at scale.
+              Beihang AI Lab is a research team based at Beihang University in Beijing. We study how intelligent systems can discover, compose, and refine algorithms for difficult optimization problems, with current work spanning LLM-guided algorithm design and large-scale routing.
             </p>
+            <dl className="lab-profile">
+              <div><dt>Institution</dt><dd>Beihang University</dd></div>
+              <div><dt>Location</dt><dd>Beijing, China</dd></div>
+              <div><dt>Research focus</dt><dd>AI × Optimization</dd></div>
+            </dl>
           </div>
         </div>
       </section>

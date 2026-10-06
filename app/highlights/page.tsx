@@ -21,9 +21,6 @@ export default function HighlightsPage() {
               <div><p>{publication.category}</p><h2>{publication.title}</h2><span>Read highlight ↗</span></div>
             </Link>
           ))}
-          <a className="highlight-item" href="https://github.com/BeihangAILab" target="_blank" rel="noreferrer">
-            <time>OPEN</time><div><p>Open source</p><h2>Code and research artifacts are available through the Beihang AI Lab organization.</h2><span>Visit GitHub ↗</span></div>
-          </a>
         </div>
       </section>
       <SiteFooter />

@@ -63,7 +63,7 @@ export const participants = [
   "Chunjing Qi",
   "Zihan Wang",
   "Xuefeng Huang",
-  "Junji Chen",
+  "Junji Cheng",
   "Shuotong Gao",
   "Zian Chen",
 ];
