@@ -1,17 +1,10 @@
+import Image from "next/image";
+import badge from "@/photos/badge/bfaa04aa99e8c143b52c9116f1af9811.png";
+
 export default function Logo() {
   return (
-    <a className="brand" href="#top" aria-label="Beihang AI Lab home">
-      <span className="brand-mark" aria-hidden="true">
-        <span className="brand-grid" />
-        <span className="brand-stroke brand-stroke-a" />
-        <span className="brand-stroke brand-stroke-b" />
-        <span className="brand-dot brand-dot-a" />
-        <span className="brand-dot brand-dot-b" />
-      </span>
-      <span className="brand-type">
-        <strong>BEIHANG</strong>
-        <span>AI LAB</span>
-      </span>
+    <a className="brand" href="/#top" aria-label="Beihang AI Lab home">
+      <Image className="brand-badge" src={badge} alt="Beihang AI Lab" priority />
     </a>
   );
 }

@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Beihang AI Lab",
+  title: "Beihang AI Lab — Algorithm Design & Optimization",
   description:
-    "Beihang AI Lab — research in reinforcement learning, foundation models, embodied intelligence, and optimization.",
+    "Beihang AI Lab researches automated algorithm design and large-scale combinatorial optimization.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body>{children}</body>
     </html>
   );

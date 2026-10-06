@@ -1,8 +1,19 @@
+import Image, { type StaticImageData } from "next/image";
+import Link from "next/link";
 import Header from "@/components/Header";
-import NeuralField from "@/components/NeuralField";
-import { news, principles, researchAreas, works } from "@/data/site";
+import PublicationArt from "@/components/PublicationArt";
+import { coreMembers, participants, publications } from "@/data/site";
+import jiale from "@/photos/members/lead/Jiale Zhao.jpg";
+import sirui from "@/photos/members/co-author/Sirui Mao.jpg";
+import zimu from "@/photos/members/co-author/Zimu Chen.jpg";
+import wentao from "@/photos/members/co-author/Wentao Yang.jpg";
 
-const Arrow = () => <span aria-hidden="true">↗</span>;
+const memberImages: Record<string, StaticImageData> = {
+  "Jiale Zhao": jiale,
+  "Sirui Mao": sirui,
+  "Zimu Chen": zimu,
+  "Wentao Yang": wentao,
+};
 
 export default function Home() {
   return (
@@ -10,206 +21,134 @@ export default function Home() {
       <Header />
 
       <section className="hero">
-        <NeuralField />
-        <div className="hero-grid" aria-hidden="true" />
-        <div className="hero-glow glow-a" aria-hidden="true" />
-        <div className="hero-glow glow-b" aria-hidden="true" />
-
         <div className="shell hero-inner">
-          <div className="hero-copy">
-            <div className="eyebrow"><span /> BEIHANG AI LAB · BEIJING</div>
-            <h1>
-              Intelligence,
-              <span> engineered to scale.</span>
-            </h1>
-            <p className="hero-lede">
-              We study learning, reasoning, agents, and optimization — building AI systems that can learn from experience, reason about difficult problems, and act effectively in the world.
-            </p>
-            <div className="hero-actions">
-              <a className="button primary" href="#research">Explore research <Arrow /></a>
-              <a className="button secondary" href="https://github.com/BeihangAILab" target="_blank" rel="noreferrer">GitHub <Arrow /></a>
-            </div>
-          </div>
-
-          <div className="hero-side" aria-label="Research signal visualization">
-            <div className="signal-card">
-              <div className="signal-top">
-                <span>BEIHANG / AI SYSTEMS</span>
-                <span className="signal-live">● ACTIVE</span>
-              </div>
-              <div className="signal-visual" aria-hidden="true">
-                <div className="signal-orbit orbit-a" />
-                <div className="signal-orbit orbit-b" />
-                <div className="signal-orbit orbit-c" />
-                <span className="node node-1" /><span className="node node-2" />
-                <span className="node node-3" /><span className="node node-4" />
-                <span className="node node-5" /><span className="node node-6" />
-                <span className="signal-core">AI</span>
-              </div>
-              <div className="signal-meta">
-                <span>LEARN</span><span>REASON</span><span>ACT</span><span>OPTIMIZE</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="shell hero-foot">
-          <span>BEIHANG UNIVERSITY</span>
-          <span className="hero-scroll">SCROLL TO DISCOVER ↓</span>
-        </div>
-      </section>
-
-      <section className="section intro-section">
-        <div className="shell split-intro">
-          <p className="section-kicker">01 / ABOUT</p>
-          <div>
-            <h2 className="statement">We work at the boundary of <em>learning</em>, <em>reasoning</em>, and <em>optimization</em>.</h2>
-            <p className="body-large">
-              Beihang AI Lab is an open research group focused on capable AI systems and the principles behind them. Our work ranges from reinforcement learning and foundation models to embodied intelligence and large-scale combinatorial optimization.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="principles-strip" aria-label="Lab principles">
-        <div className="shell principles-grid">
-          {principles.map(([index, title, text]) => (
-            <div className="principle" key={index}>
-              <span>{index}</span>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="research" className="section dark-section">
-        <div className="shell">
-          <div className="section-heading light-heading">
-            <div>
-              <p className="section-kicker">02 / RESEARCH</p>
-              <h2>Research directions</h2>
-            </div>
-            <p>Four connected directions, one goal: building more capable and useful intelligent systems.</p>
-          </div>
-
-          <div className="research-grid">
-            {researchAreas.map((area) => (
-              <article className="research-card" key={area.index}>
-                <div className="card-index">{area.index}</div>
-                <div className="mini-network" aria-hidden="true"><i /><i /><i /><i /></div>
-                <h3>{area.title}</h3>
-                <p>{area.text}</p>
-                <div className="tag-row">
-                  {area.tags.map((tag) => <span key={tag}>{tag}</span>)}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="work" className="section work-section">
-        <div className="shell">
-          <div className="section-heading">
-            <div>
-              <p className="section-kicker">03 / SELECTED RESEARCH</p>
-              <h2>What we are building</h2>
-            </div>
-            <a className="text-link" href="https://github.com/BeihangAILab" target="_blank" rel="noreferrer">All projects <Arrow /></a>
-          </div>
-
-          <div className="work-list">
-            {works.map((work, idx) => (
-              <article className="work-row" key={work.title}>
-                <div className="work-art" aria-hidden="true">
-                  <div className={`art-artifact artifact-${idx + 1}`}>
-                    <div className="artifact-grid" />
-                    <span className="art-code">{work.code}</span>
-                    <span className="art-ring ring-a" />
-                    <span className="art-ring ring-b" />
-                    <span className="art-node art-node-a" />
-                    <span className="art-node art-node-b" />
-                    <span className="art-node art-node-c" />
-                  </div>
-                </div>
-                <div className="work-copy">
-                  <div className="work-topline">
-                    <p className="work-eyebrow">{work.eyebrow}</p>
-                    <span className="status-chip">{work.status}</span>
-                  </div>
-                  <h3>{work.title}</h3>
-                  <p>{work.description}</p>
-                  <div className="work-meta">{work.meta}</div>
-                  <a href={work.href} target={work.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">
-                    {work.cta} <Arrow />
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="news" className="section news-section">
-        <div className="shell news-layout">
-          <div>
-            <p className="section-kicker">04 / NEWS</p>
-            <h2>Latest from the lab</h2>
-            <p className="news-intro">Research releases, open-source updates, and lab milestones.</p>
-          </div>
-          <div className="news-list">
-            {news.map((item, index) => (
-              <div className="news-item" key={item.date + item.text}>
-                <time>{item.date}</time>
-                <div>
-                  <span className="news-index">0{index + 1}</span>
-                  <p>{item.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="people" className="section people-section">
-        <div className="shell people-panel">
-          <div className="people-copy">
-            <p className="section-kicker">05 / PEOPLE</p>
-            <h2>Small team.<br />Big questions.</h2>
+          <p className="eyebrow">BEIHANG UNIVERSITY · BEIJING</p>
+          <h1>
+            We design intelligence
+            <span>for hard problems.</span>
+          </h1>
+          <div className="hero-bottom">
             <p>
-              We are building an open and ambitious research community at Beihang University. We welcome collaborators interested in reinforcement learning, foundation models, embodied intelligence, and optimization.
+              An open research team exploring automated algorithm design and large-scale combinatorial optimization.
             </p>
-            <div className="people-tags"><span>Students</span><span>Collaborators</span><span>Open Source</span></div>
+            <a className="round-link" href="#publications" aria-label="Explore publications">
+              <span>EXPLORE</span><strong>↓</strong>
+            </a>
           </div>
-          <div className="people-visual" aria-hidden="true">
-            <div className="people-axis axis-x" /><div className="people-axis axis-y" />
-            <span className="person-point p1" /><span className="person-point p2" /><span className="person-point p3" /><span className="person-point p4" />
-            <span className="people-label label-a">LEARN</span><span className="people-label label-b">BUILD</span><span className="people-label label-c">DISCOVER</span>
+        </div>
+        <div className="hero-orbit orbit-one" aria-hidden="true" />
+        <div className="hero-orbit orbit-two" aria-hidden="true" />
+        <div className="hero-dot dot-one" aria-hidden="true" />
+        <div className="hero-dot dot-two" aria-hidden="true" />
+      </section>
+
+      <section id="about" className="section about-section">
+        <div className="shell about-grid">
+          <div>
+            <p className="section-label">01 / ABOUT</p>
+            <p className="micro-copy">Learning · Search · Optimization</p>
+          </div>
+          <div>
+            <h2>Structure first.<br /><em>Scale</em> follows.</h2>
+            <p className="about-copy">
+              We study how intelligent systems can discover, compose, and refine algorithms. Our current work spans LLM-guided algorithm design and fast, training-free methods for routing problems at scale.
+            </p>
           </div>
         </div>
       </section>
 
-      <section id="contact" className="contact-section">
-        <div className="shell contact-grid">
-          <div>
-            <p className="section-kicker">06 / CONNECT</p>
-            <h2>Let&apos;s build what&apos;s next.</h2>
+      <section id="publications" className="section publications-section">
+        <div className="shell">
+          <div className="section-intro">
+            <p className="section-label">02 / PUBLICATIONS</p>
+            <h2>Selected research</h2>
           </div>
-          <div className="contact-actions">
-            <a href="https://github.com/BeihangAILab" target="_blank" rel="noreferrer">GitHub <Arrow /></a>
-            <a href="#top">Back to top ↑</a>
+
+          <div className="publication-list">
+            {publications.map((publication) => (
+              <Link className="publication-row" href={`/publications/${publication.slug}`} key={publication.slug}>
+                <div className={`publication-visual publication-${publication.accent}`}>
+                  <PublicationArt type={publication.art} />
+                </div>
+                <div className="publication-copy">
+                  <div className="publication-meta">
+                    <span>{publication.number}</span>
+                    <span>{publication.category}</span>
+                    <span>{publication.year}</span>
+                  </div>
+                  <h3>{publication.shortTitle}</h3>
+                  <p>{publication.summary}</p>
+                  <div className="publication-footer">
+                    <span>{publication.authors.split(",").slice(0, 4).join(", ")}{publication.authors.split(",").length > 4 ? ", et al." : ""}</span>
+                    <strong>Read paper <i aria-hidden="true">↗</i></strong>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="members" className="section members-section">
+        <div className="shell">
+          <div className="members-heading">
+            <div>
+              <p className="section-label">03 / MEMBERS</p>
+              <h2>The people behind<br />the questions.</h2>
+            </div>
+            <p>Small, collaborative, and focused on turning ambitious ideas into rigorous research.</p>
+          </div>
+
+          <div className="lead-layout">
+            <article className="member-card lead-card">
+              <div className="member-photo lead-photo">
+                <Image src={memberImages[coreMembers.lead.name]} alt={coreMembers.lead.name} sizes="(max-width: 760px) 70vw, 32vw" />
+              </div>
+              <p className="member-role">{coreMembers.lead.role}</p>
+              <h3>{coreMembers.lead.name}</h3>
+            </article>
+
+            <div className="coauthors">
+              <p className="group-label">Co-authors</p>
+              <div className="coauthor-grid">
+                {coreMembers.coauthors.map((member) => (
+                  <article className="member-card" key={member.name}>
+                    <div className="member-photo">
+                      <Image src={memberImages[member.name]} alt={member.name} sizes="(max-width: 760px) 42vw, 17vw" />
+                    </div>
+                    <p className="member-role">{member.role}</p>
+                    <h3>{member.name}</h3>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="participants">
+            <div className="participants-heading">
+              <p className="group-label">Participants</p>
+              <span>{String(participants.length).padStart(2, "0")} people</span>
+            </div>
+            <div className="participant-list">
+              {participants.map((name, index) => (
+                <div className="participant-name" key={name}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <strong>{name}</strong>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       <footer className="footer">
-        <div className="shell footer-grid">
-          <div><strong>BEIHANG AI LAB</strong><p>Learning · Reasoning · Acting · Optimizing</p></div>
-          <div className="footer-links">
-            <a href="#research">Research</a><a href="#work">Work</a><a href="#news">News</a><a href="#people">People</a>
-          </div>
-          <div className="footer-end">© 2026 Beihang AI Lab<br />Beijing, China</div>
+        <div className="shell footer-main">
+          <p className="section-label">BEIHANG AI LAB</p>
+          <h2>Let&apos;s solve the<br /><em>hard part.</em></h2>
+          <a href="https://github.com/BeihangAILab" target="_blank" rel="noreferrer">Visit GitHub ↗</a>
+        </div>
+        <div className="shell footer-base">
+          <span>© 2026 Beihang AI Lab</span><span>Beijing, China</span><a href="#top">Back to top ↑</a>
         </div>
       </footer>
     </main>
