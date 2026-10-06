@@ -12,7 +12,10 @@ const directions = [
     text: "We develop scalable methods for complex optimization problems, connecting mathematical structure, intelligent search, and practical solvers.",
     points: ["Combinatorial optimization", "Large-scale routing", "Algorithm design"],
     words: ["MODEL", "SEARCH", "SOLVE", "SCALE"],
-    href: "/publications/just-initialize",
+    papers: [
+      { label: "DGA₂D", href: "/publications/dga2d" },
+      { label: "Just Initialize", href: "/publications/just-initialize" },
+    ],
   },
   {
     number: "02",
@@ -20,7 +23,7 @@ const directions = [
     text: "We study how agents learn effective decisions through interaction, with an emphasis on efficient learning, robust policies, and long-horizon reasoning.",
     points: ["Sequential decisions", "Policy learning", "Generalization"],
     words: ["STATE", "POLICY", "REWARD", "ADAPT"],
-    href: "/publications",
+    papers: [{ label: "DGA₂D", href: "/publications/dga2d" }],
   },
   {
     number: "03",
@@ -28,7 +31,7 @@ const directions = [
     text: "We explore intelligent systems that perceive, reason, and act in physical environments, linking multimodal understanding with purposeful behavior.",
     points: ["Perception and action", "World understanding", "Interactive agents"],
     words: ["SENSE", "REASON", "ACT", "WORLD"],
-    href: "/publications",
+    papers: [],
   },
   {
     number: "04",
@@ -36,7 +39,7 @@ const directions = [
     text: "We investigate systems that improve their own strategies, components, and problem-solving processes through evaluation, feedback, and continual adaptation.",
     points: ["Automated improvement", "Feedback-driven search", "Evolving systems"],
     words: ["BUILD", "TEST", "EVOLVE", "REPEAT"],
-    href: "/publications/dga2d",
+    papers: [{ label: "DGA₂D", href: "/publications/dga2d" }],
   },
 ];
 
@@ -63,7 +66,14 @@ export default function ResearchPage() {
                 <h2>{direction.title}</h2>
                 <p>{direction.text}</p>
                 <ul>{direction.points.map((point) => <li key={point}>{point}</li>)}</ul>
-                <Link href={direction.href}>Related work <span aria-hidden="true">→</span></Link>
+                {direction.papers.length > 0 ? (
+                  <div className="research-related">
+                    <span>Related work</span>
+                    {direction.papers.map((paper) => (
+                      <Link href={paper.href} key={paper.href}>{paper.label} <i aria-hidden="true">→</i></Link>
+                    ))}
+                  </div>
+                ) : null}
               </div>
             </article>
           ))}

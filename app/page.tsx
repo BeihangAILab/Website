@@ -50,10 +50,10 @@ export default function Home() {
           <div>
             <h2>An AI research group<br />at <em>Beihang.</em></h2>
             <p className="about-copy">
-              Established on July 1, Beihang AI Lab is rooted in Beihang University&apos;s School of Automation Science and Electrical Engineering and School of Computer Science and Engineering. We bring together optimization, learning, embodied intelligence, and self-evolving systems to study how AI can solve hard real-world problems.
+              Established on July 1, 2026, Beihang AI Lab is rooted in Beihang University&apos;s School of Automation Science and Electrical Engineering and School of Computer Science and Engineering. We bring together optimization, learning, embodied intelligence, and self-evolving systems to study how AI can solve hard real-world problems.
             </p>
             <dl className="lab-profile">
-              <div><dt>Established</dt><dd>July 1</dd></div>
+              <div><dt>Established</dt><dd>July 1, 2026</dd></div>
               <div><dt>Institution</dt><dd>Beihang University</dd></div>
               <div><dt>Academic base</dt><dd>Automation + Computer Science</dd></div>
             </dl>
@@ -95,9 +95,17 @@ export default function Home() {
               <h3>Lead</h3>
             </div>
             <article className="member-card lead-card">
-              <div className="member-photo lead-photo">
-                <Image src={memberImages[coreMembers.lead.name]} alt={coreMembers.lead.name} sizes="(max-width: 760px) 54vw, 250px" />
-              </div>
+              <a
+                className="member-profile-link"
+                href="https://peterzhao225.github.io/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Visit Jiale Zhao's personal website"
+              >
+                <div className="member-photo lead-photo">
+                  <Image src={memberImages[coreMembers.lead.name]} alt={coreMembers.lead.name} sizes="(max-width: 760px) 54vw, 220px" />
+                </div>
+              </a>
               <h4>{coreMembers.lead.name}</h4>
             </article>
           </div>

@@ -32,7 +32,15 @@ export default function MembersPage() {
           <div className="member-group lead-group">
             <div className="member-group-heading"><span>01</span><h3>Lead</h3></div>
             <article className="member-card lead-card">
-              <div className="member-photo lead-photo"><Image src={memberImages[coreMembers.lead.name]} alt={coreMembers.lead.name} /></div>
+              <a
+                className="member-profile-link"
+                href="https://peterzhao225.github.io/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Visit Jiale Zhao's personal website"
+              >
+                <div className="member-photo lead-photo"><Image src={memberImages[coreMembers.lead.name]} alt={coreMembers.lead.name} /></div>
+              </a>
               <h4>{coreMembers.lead.name}</h4>
             </article>
           </div>
