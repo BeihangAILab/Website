@@ -8,27 +8,35 @@ export const metadata: Metadata = { title: "Research — Beihang AI Lab" };
 const directions = [
   {
     number: "01",
-    title: "Automated Algorithm Design",
-    text: "We study how large language models can compose complete algorithmic systems, evolve reusable operators, and reason over structured search spaces.",
-    points: ["LLM-guided design", "Structured program search", "Reusable algorithm operators"],
-    words: ["PROMPT", "SEARCH", "CODE", "EVALUATE"],
-    href: "/publications/dga2d",
-  },
-  {
-    number: "02",
-    title: "Large-scale Routing",
-    text: "We build efficient methods for routing problems from thousands to hundreds of thousands of nodes, emphasizing strong initialization, global structure, and fast refinement.",
-    points: ["Training-free initialization", "Large problem instances", "Solver-agnostic components"],
-    words: ["COMPRESS", "ROUTE", "RECOVER", "REFINE"],
+    title: "Optimization",
+    text: "We develop scalable methods for complex optimization problems, connecting mathematical structure, intelligent search, and practical solvers.",
+    points: ["Combinatorial optimization", "Large-scale routing", "Algorithm design"],
+    words: ["MODEL", "SEARCH", "SOLVE", "SCALE"],
     href: "/publications/just-initialize",
   },
   {
-    number: "03",
-    title: "Combinatorial Optimization",
-    text: "We develop general mechanisms that connect learning, search, and optimization across routing, scheduling, allocation, and graph problems.",
-    points: ["Discrete search spaces", "Scalable optimization", "General problem-solving systems"],
-    words: ["LEARN", "GRAPH", "OPTIMIZE", "SCALE"],
+    number: "02",
+    title: "Reinforcement Learning",
+    text: "We study how agents learn effective decisions through interaction, with an emphasis on efficient learning, robust policies, and long-horizon reasoning.",
+    points: ["Sequential decisions", "Policy learning", "Generalization"],
+    words: ["STATE", "POLICY", "REWARD", "ADAPT"],
     href: "/publications",
+  },
+  {
+    number: "03",
+    title: "Embodied AI",
+    text: "We explore intelligent systems that perceive, reason, and act in physical environments, linking multimodal understanding with purposeful behavior.",
+    points: ["Perception and action", "World understanding", "Interactive agents"],
+    words: ["SENSE", "REASON", "ACT", "WORLD"],
+    href: "/publications",
+  },
+  {
+    number: "04",
+    title: "Self-evolving AI",
+    text: "We investigate systems that improve their own strategies, components, and problem-solving processes through evaluation, feedback, and continual adaptation.",
+    points: ["Automated improvement", "Feedback-driven search", "Evolving systems"],
+    words: ["BUILD", "TEST", "EVOLVE", "REPEAT"],
+    href: "/publications/dga2d",
   },
 ];
 
@@ -37,7 +45,7 @@ export default function ResearchPage() {
     <main id="top" className="inner-page">
       <Header detail />
       <section className="inner-hero research-hero">
-        <div className="shell"><p className="section-label">RESEARCH</p><h1>Research built around<br /><em>hard problems.</em></h1></div>
+        <div className="shell"><p className="section-label">RESEARCH</p><h1>Four directions.<br /><em>One ambition.</em></h1></div>
       </section>
       <section className="section research-page-section">
         <div className="shell research-list">

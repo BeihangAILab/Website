@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
+import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
-import PublicationArt from "@/components/PublicationArt";
-import { publications } from "@/data/site";
+import SiteFooter from "@/components/SiteFooter";
+import { publications, type Publication } from "@/data/site";
+import dga2dOverview from "@/photos/pub/DGA2D/overview.png";
+import justInitializeOverview from "@/photos/pub/Just Initialize/overview.png";
+
+const publicationImages: Record<Publication["slug"], StaticImageData> = {
+  dga2d: dga2dOverview,
+  "just-initialize": justInitializeOverview,
+};
 
 export function generateStaticParams() {
   return publications.map((publication) => ({ slug: publication.slug }));
@@ -23,12 +31,21 @@ export default async function PublicationPage({ params }: { params: Promise<{ sl
   if (!publication) notFound();
 
   return (
-    <main className={`paper-page paper-${publication.accent}`}>
+    <main id="top" className={`paper-page paper-${publication.accent}`}>
       <Header detail />
       <section className="paper-hero">
-        <div className="shell paper-hero-grid">
-          <div className="paper-heading">
-            <Link className="back-link" href="/#publications">← All publications</Link>
+        <div className="shell">
+          <Link className="back-link" href="/publications">← All publications</Link>
+          <div className="paper-hero-grid">
+            <div className="paper-overview">
+              <Image
+                src={publicationImages[publication.slug]}
+                alt={`${publication.shortTitle} method overview`}
+                sizes="(max-width: 720px) calc(100vw - 64px), (max-width: 1100px) 44vw, 560px"
+                priority
+              />
+            </div>
+            <div className="paper-heading">
             <p className="section-label">{publication.category} · {publication.year}</p>
             <h1>{publication.title}</h1>
             <p className="paper-authors">{publication.authors}</p>
@@ -38,8 +55,8 @@ export default async function PublicationPage({ params }: { params: Promise<{ sl
                 <a href={publication.code} target="_blank" rel="noreferrer">View code ↗</a>
               ) : null}
             </div>
+            </div>
           </div>
-          <div className="paper-art"><PublicationArt type={publication.art} /></div>
         </div>
       </section>
 
@@ -55,12 +72,13 @@ export default async function PublicationPage({ params }: { params: Promise<{ sl
           </div>
         </div>
 
-        <div className="shell stats-row">
-          {publication.stats.map(([value, label]) => (
-            <div className="paper-stat" key={label}>
-              <strong>{value}</strong><span>{label}</span>
-            </div>
-          ))}
+        <div className="shell paper-results">
+          <div className="paper-index"><span>KEY RESULTS</span><span>{publication.number}</span></div>
+          <div className="result-copy">
+            {publication.stats.map(([value, label]) => (
+              <p key={label}><strong>{value}</strong> {label}</p>
+            ))}
+          </div>
         </div>
 
         <div className="shell next-paper">
@@ -70,6 +88,7 @@ export default async function PublicationPage({ params }: { params: Promise<{ sl
           </Link>
         </div>
       </section>
+      <SiteFooter />
     </main>
   );
 }

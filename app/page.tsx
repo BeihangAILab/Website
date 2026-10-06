@@ -45,18 +45,25 @@ export default function Home() {
         <div className="shell about-grid">
           <div>
             <p className="section-label">01 / ABOUT</p>
-            <p className="micro-copy">Learning · Search · Optimization</p>
+            <p className="micro-copy">Optimization · Learning · Embodied Intelligence</p>
           </div>
           <div>
             <h2>An AI research group<br />at <em>Beihang.</em></h2>
             <p className="about-copy">
-              Beihang AI Lab is a research team based at Beihang University in Beijing. We study how intelligent systems can discover, compose, and refine algorithms for difficult optimization problems, with current work spanning LLM-guided algorithm design and large-scale routing.
+              Established on July 1, Beihang AI Lab is rooted in Beihang University&apos;s School of Automation Science and Electrical Engineering and School of Computer Science and Engineering. We bring together optimization, learning, embodied intelligence, and self-evolving systems to study how AI can solve hard real-world problems.
             </p>
             <dl className="lab-profile">
+              <div><dt>Established</dt><dd>July 1</dd></div>
               <div><dt>Institution</dt><dd>Beihang University</dd></div>
-              <div><dt>Location</dt><dd>Beijing, China</dd></div>
-              <div><dt>Research focus</dt><dd>AI × Optimization</dd></div>
+              <div><dt>Academic base</dt><dd>Automation + Computer Science</dd></div>
             </dl>
+            <div className="focus-block">
+              <p>Research directions</p>
+              <div>
+                <strong>Optimization</strong><strong>Reinforcement Learning</strong>
+                <strong>Embodied AI</strong><strong>Self-evolving AI</strong>
+              </div>
+            </div>
           </div>
         </div>
       </section>
