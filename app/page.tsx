@@ -1,8 +1,7 @@
 import Image, { type StaticImageData } from "next/image";
-import Link from "next/link";
 import Header from "@/components/Header";
-import PublicationArt from "@/components/PublicationArt";
-import { coreMembers, participants, publications } from "@/data/site";
+import PublicationList from "@/components/PublicationList";
+import { coreMembers, participants } from "@/data/site";
 import jiale from "@/photos/members/lead/Jiale Zhao.jpg";
 import sirui from "@/photos/members/co-author/Sirui Mao.jpg";
 import zimu from "@/photos/members/co-author/Zimu Chen.jpg";
@@ -64,28 +63,7 @@ export default function Home() {
             <h2>Selected research</h2>
           </div>
 
-          <div className="publication-list">
-            {publications.map((publication) => (
-              <Link className="publication-row" href={`/publications/${publication.slug}`} key={publication.slug}>
-                <div className={`publication-visual publication-${publication.accent}`}>
-                  <PublicationArt type={publication.art} />
-                </div>
-                <div className="publication-copy">
-                  <div className="publication-meta">
-                    <span>{publication.number}</span>
-                    <span>{publication.category}</span>
-                    <span>{publication.year}</span>
-                  </div>
-                  <h3>{publication.shortTitle}</h3>
-                  <p>{publication.summary}</p>
-                  <div className="publication-footer">
-                    <span>{publication.authors.split(",").slice(0, 4).join(", ")}{publication.authors.split(",").length > 4 ? ", et al." : ""}</span>
-                    <strong>Read paper <i aria-hidden="true">↗</i></strong>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+          <PublicationList />
         </div>
       </section>
 
