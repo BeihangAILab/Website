@@ -65,7 +65,7 @@ img { display: block; }
   margin: 0;
   max-width: 900px;
   font-size: clamp(54px, 6.2vw, 86px);
-  line-height: .94;
+  line-height: 1.15;
   letter-spacing: -.052em;
   font-weight: 600;
 }
@@ -267,7 +267,7 @@ img { display: block; }
   .shell { width: calc(100% - 28px); }
   .nav-shell { height: 72px; }.brand { width: 148px; }.nav { display: none; }
   .hero { height: auto; min-height: 560px; }.hero-inner { padding-top: 118px; padding-bottom: 28px; }
-  .hero h1 { font-size: clamp(42px, 11.5vw, 54px); line-height: .98; }.hero h1 span { margin-left: 0; }
+  .hero h1 { font-size: clamp(42px, 11.5vw, 54px); }.hero h1 span { margin-left: 0; }
   .hero-bottom { align-items: end; }.hero-bottom > p { width: 68%; font-size: 15px; }.round-link { width: 82px; height: 82px; padding: 17px; font-size: 9px; }
   .orbit-one { width: 86vw; right: -45vw; top: 22%; }.orbit-two { width: 72vw; right: 18vw; bottom: -24%; }.dot-one { width: 68px; height: 68px; right: 12vw; top: 34%; }
   .section { padding: 70px 0; }
