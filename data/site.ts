@@ -55,6 +55,7 @@ export const coreMembers = {
     { name: "Sirui Mao", role: "Co-author" },
     { name: "Zimu Chen", role: "Co-author" },
     { name: "Wentao Yang", role: "Co-author" },
+    { name: "Junyou Guo", role: "Co-author" },
   ],
 };
 

@@ -6,12 +6,14 @@ import jiale from "@/photos/members/lead/Jiale Zhao.jpg";
 import sirui from "@/photos/members/co-author/Sirui Mao.jpg";
 import zimu from "@/photos/members/co-author/Zimu Chen.jpg";
 import wentao from "@/photos/members/co-author/Wentao Yang.jpg";
+import junyou from "@/photos/members/co-author/Junyou Guo.png";
 
 const memberImages: Record<string, StaticImageData> = {
   "Jiale Zhao": jiale,
   "Sirui Mao": sirui,
   "Zimu Chen": zimu,
   "Wentao Yang": wentao,
+  "Junyou Guo": junyou,
 };
 
 export default function Home() {
